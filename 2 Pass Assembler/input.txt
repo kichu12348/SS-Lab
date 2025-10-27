@@ -1,0 +1,8 @@
+PRGM    START   1000
+**      LDA     ALPHA
+**      ADD     BETA
+**      STA     GAMMA
+ALPHA   WORD    1
+BETA    WORD    2
+GAMMA   RESW    1
+**      END     PRGM
