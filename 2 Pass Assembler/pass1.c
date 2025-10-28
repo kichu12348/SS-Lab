@@ -19,7 +19,7 @@ int searchOpTab(char val[]){
     int found=0;
     while(fscanf(optab,"%s %s",opcode,addr)!=EOF)
         if(strcmp(opcode,val)==0) found=1;
-        
+    fclose(optab);    
     return found;
 }
 
