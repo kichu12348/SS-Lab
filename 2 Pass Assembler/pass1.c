@@ -27,7 +27,7 @@ void main(){
 
     FILE *inputFile,*intFile,*symTab;
 
-    char line[100],label[10],opcode[10],operand[10];
+    char label[10],opcode[10],operand[10];
 
     int startingAddr,locctr;
 
