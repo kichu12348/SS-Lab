@@ -79,7 +79,7 @@ void main(){
         fscanf(inputFile,"%s %s %s",label,opcode,operand);
     }
 
-    fprintf(intFile,"%X\t%s\t%s\t%s\n",locctr,label,opcode,operand);
+    fprintf(intFile,"\t\t%s\t%s\t%s\n",label,opcode,operand);
 
     
     
