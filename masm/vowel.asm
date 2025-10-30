@@ -1,31 +1,31 @@
 .model small
+
 .stack 100h
 
 .data 
     msg1 db "enter string: $"
-    msg2 db 13,10,"no of vovels: $"
+    msg2 db 10,13,"no of vovels: $"
 
     MAX_LEN db 80
     ACTUAL_LEN db ?
     INPUT_STRING db 80 dup("$")
 
 .code 
-
 start:
     mov ax,@data
     mov ds,ax
 
-    lea dx,msg1
+    lea dx, msg1
     mov ah,09h
     int 21h
 
     lea dx,MAX_LEN
-    mov ah,0ah
+    mov ah,0ah ; read string from user
     int 21h
 
     lea si,INPUT_STRING
     mov bx,0
-    mov cx,0 
+    mov ch,0
     mov cl,ACTUAL_LEN
 
 check_char:
@@ -56,12 +56,10 @@ check_char:
     je vovel_found
 
     jmp next_char
-
 vovel_found:
     inc bx
-
 next_char:
-    inc si
+    inc si 
     dec cx
     jmp check_char
 
@@ -71,12 +69,11 @@ display_result:
     int 21h
 
     mov ax,bx
-    mov bx,10
     mov cx,0
+    mov bx,10
 
 convert_loop:
     xor dx,dx
-    
     cmp ax,0
     je print_loop
 
@@ -87,14 +84,14 @@ convert_loop:
     jmp convert_loop
 
 print_loop:
+    cmp cx,0
+    je done_print
     pop dx
     mov ah,02h
     int 21h
     dec cx
-    jnz print_loop
-
-exit:
+    jmp print_loop
+done_print:
     mov ah,4ch
     int 21h
 end start
-

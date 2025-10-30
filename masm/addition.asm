@@ -36,6 +36,7 @@ display_message endp
 
 read_number proc
     mov bx,0
+    mov cx,10
 
 read_loop:
     mov ah,01h
@@ -44,7 +45,6 @@ read_loop:
     je done_input
     sub al,30h
     mov ah,0
-    mov cx,10
     push ax
     mov ax,bx
     mul cx
