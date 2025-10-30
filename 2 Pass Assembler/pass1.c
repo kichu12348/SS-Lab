@@ -39,7 +39,7 @@ void main(){
 
     if(strcmp(opcode,"START")==0){
         startingAddr=locctr=(int)strtol(operand,NULL,16);
-        fprintf(intFile,"%X\t%s\t%s\t%s\n",startingAddr,label,opcode,operand);
+        fprintf(intFile,"\t\t%s\t%s\t%s\n",startingAddr,label,opcode,operand);
         fscanf(inputFile,"%s %s %s",label,opcode,operand);
     }
 
